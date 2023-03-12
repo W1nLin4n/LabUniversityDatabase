@@ -38,7 +38,7 @@ public class Select {
      * @param year Students' year
      * @return students selected by year
      */
-    public List<Student> studentsByYear(List<Student> list, int year){
+    public static List<Student> studentsByYear(List<Student> list, int year){
         List<Student> result = new ArrayList<>();
         for (Student student : list) {
             if (student.getAge() == year) {
@@ -54,7 +54,7 @@ public class Select {
      * @param group Students' group
      * @return students selected by group
      */
-    public List<Student> studentsByGroup(List<Student> list, String group){
+    public static List<Student> studentsByGroup(List<Student> list, String group){
         List<Student> result = new ArrayList<>();
         for (Student student : list) {
             if (student.toString().equals(group)) {
@@ -63,4 +63,35 @@ public class Select {
         }
         return result;
     }
+
+    /**
+     * Finds faculty by name
+     * @param list List of faculties
+     * @param name Faculty's name
+     * @return faculty or null if there is no such faculty
+     */
+    public static Faculty facultyByName(List<Faculty> list, String name){
+        for(Faculty faculty : list){
+            if(faculty.getName().equals(name)){
+                return faculty;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Finds department by name
+     * @param list List of departments
+     * @param name Department's name
+     * @return department or null if there is no such department
+     */
+    public static Department departmentByName(List<Department> list, String name){
+        for(Department department : list){
+            if(department.getName().equals(name)){
+                return department;
+            }
+        }
+        return null;
+    }
+
 }

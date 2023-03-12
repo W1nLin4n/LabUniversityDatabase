@@ -3,11 +3,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class University {
-    List<Faculty> faculties;
+    private List<Faculty> faculties;
 
     public University(File input){
         Reader.setFile(input);
-
+        FileParser.readUniversityData(this);
+        Reader.resetToConsole();
     }
 
     /**
@@ -32,6 +33,23 @@ public class University {
      */
     public void editFaculty(Faculty oldFaculty, Faculty newFaculty){
 
+    }
+
+    /**
+     * Get all faculties
+     * @return all faculties
+     */
+    public List<Faculty> getFaculties(){
+        return faculties;
+    }
+
+    /**
+     * Get all departments
+     * @return all departments
+     */
+    public List<Department> getDepartments(){
+        List<Department> result = new ArrayList<>();
+        return result;
     }
 
     /**
