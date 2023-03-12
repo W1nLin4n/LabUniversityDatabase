@@ -6,9 +6,7 @@ public class University {
     private List<Faculty> faculties;
 
     public University(File input){
-        Reader.setFile(input);
-        FileParser.readUniversityData(this);
-        Reader.resetToConsole();
+        FileParser.readUniversityData(input, this);
     }
 
     /**

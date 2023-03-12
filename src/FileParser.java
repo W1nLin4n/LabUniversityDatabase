@@ -1,6 +1,9 @@
+import java.io.File;
+
 public class FileParser {
 
-    public static void readUniversityData(University university){
+    public static void readUniversityData(File input, University university){
+        Reader.setFile(input);
         String line;
         int lineOffset;
 
@@ -73,6 +76,7 @@ public class FileParser {
 
             Select.departmentByName(university.getDepartments(), departmentName).addTeacher(new Teacher(studentName, studentAge));
         }
+        Reader.resetToConsole();
     }
 
     private static String parseNextParam(String line, int offset){
