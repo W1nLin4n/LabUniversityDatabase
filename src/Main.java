@@ -6,7 +6,7 @@ public class Main {
     }
 
     /**
-     * This method should add new Faculty to university
+     * This method should add new Faculty to university(must be unique by name)
      * @param faculty New faculty
      */
     public void addFaculty(Faculty faculty){
