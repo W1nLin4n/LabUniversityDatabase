@@ -28,4 +28,8 @@ public class Student extends Person{
     public void setGroup(String group) {
         this.group = group;
     }
+
+    public Department getDepartment() {
+        return department;
+    }
 }
