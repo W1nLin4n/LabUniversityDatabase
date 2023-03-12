@@ -4,6 +4,7 @@ import java.util.List;
 public class Select {
     /**
      * Finds student by name
+     * @param list List of students
      * @param name Student's name
      * @return student or null if there is no such student
      */
@@ -18,6 +19,7 @@ public class Select {
 
     /**
      * Finds teacher by name
+     * @param list List of teachers
      * @param name Teacher's name
      * @return teacher or null if there is no such teacher
      */
@@ -32,13 +34,13 @@ public class Select {
 
     /**
      * Finds students by year
+     * @param list List of students
      * @param year Students' year
      * @return students selected by year
      */
-    public List<Student> studentsByYear(int year){
+    public List<Student> studentsByYear(List<Student> list, int year){
         List<Student> result = new ArrayList<>();
-        List<Student> students = new ArrayList<>();
-        for (Student student : students) {
+        for (Student student : list) {
             if (student.getAge() == year) {
                 result.add(student);
             }
@@ -48,13 +50,13 @@ public class Select {
 
     /**
      * Finds student by group
+     * @param list List of students
      * @param group Students' group
      * @return students selected by group
      */
-    public List<Student> studentsByGroup(String group){
+    public List<Student> studentsByGroup(List<Student> list, String group){
         List<Student> result = new ArrayList<>();
-        List<Student> students = new ArrayList<>();
-        for (Student student : students) {
+        for (Student student : list) {
             if (student.toString().equals(group)) {
                 result.add(student);
             }
