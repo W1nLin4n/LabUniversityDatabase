@@ -25,7 +25,7 @@ public class Select {
     /**
      * Finds students by year
      * @param year Students' year
-     * @return students or null if there is no such student
+     * @return students selected by year
      */
     public List<Student> studentsByYear(int year){
         List<Student> result = new ArrayList<>();
@@ -35,7 +35,7 @@ public class Select {
     /**
      * Finds student by group
      * @param group Students' group
-     * @return student or null if there is no such student
+     * @return students selected by group
      */
     public List<Student> studentsByGroup(String group){
         List<Student> result = new ArrayList<>();
