@@ -8,8 +8,12 @@ public class Select {
      * @return student or null if there is no such student
      */
     public static Student studentByName(List<Student> list, String name){
-        Student student = null;
-        return student;
+        for (Student student : list) {
+            if (student.getName().equals(name)) {
+                return student;
+            }
+        }
+        return null;
     }
 
     /**
@@ -18,8 +22,12 @@ public class Select {
      * @return teacher or null if there is no such teacher
      */
     public static Teacher teacherByName(List<Teacher> list, String name){
-        Teacher teacher = null;
-        return teacher;
+        for (Teacher teacher : list) {
+            if (teacher.getName().equals(name)) {
+                return teacher;
+            }
+        }
+        return null;
     }
 
     /**
@@ -29,6 +37,12 @@ public class Select {
      */
     public List<Student> studentsByYear(int year){
         List<Student> result = new ArrayList<>();
+        List<Student> students = new ArrayList<>();
+        for (Student student : students) {
+            if (student.getAge() == year) {
+                result.add(student);
+            }
+        }
         return result;
     }
 
@@ -39,6 +53,12 @@ public class Select {
      */
     public List<Student> studentsByGroup(String group){
         List<Student> result = new ArrayList<>();
+        List<Student> students = new ArrayList<>();
+        for (Student student : students) {
+            if (student.toString().equals(group)) {
+                result.add(student);
+            }
+        }
         return result;
     }
 }
