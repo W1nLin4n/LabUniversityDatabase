@@ -1,15 +1,13 @@
 /*
  *  Program made by Artem Hrechka
  *
- *  Reader_v1.2, a simple reader to
+ *  Reader_v1.3, a simple reader to
  *  read ints, doubles, strings and
- *  chars from console
+ *  chars from console and files
  *
  */
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class Reader {
     private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -72,4 +70,17 @@ public class Reader {
             throw new RuntimeException(e);
         }
     }
+
+    public static void setFile(File file){
+        try {
+            br = new BufferedReader(new FileReader(file));
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void resetToConsole(){
+        br = new BufferedReader(new InputStreamReader(System.in));
+    }
+
 }
