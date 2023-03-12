@@ -41,4 +41,20 @@ public class Faculty{
     public List<Department> getDepartments() {
         return departments;
     }
+
+    public List<Student> getStudents(){
+        List<Student> result = new ArrayList<>();
+        for(Department department : departments){
+            result.addAll(department.getStudents());
+        }
+        return result;
+    }
+
+    public List<Teacher> getTeachers(){
+        List<Teacher> result = new ArrayList<>();
+        for(Department department : departments){
+            result.addAll(department.getTeachers());
+        }
+        return result;
+    }
 }
