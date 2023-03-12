@@ -5,6 +5,11 @@ public class Faculty{
     String name;
     List<Department> departments;
 
+    public Faculty(String name){
+        this.name = name;
+        departments = new ArrayList<>();
+    }
+
     /**
      * This method should add new Department to this faculty(must be unique by name)
      * @param department New department

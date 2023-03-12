@@ -1,8 +1,14 @@
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class University {
     List<Faculty> faculties;
+
+    public University(File input){
+        Reader.setFile(input);
+
+    }
 
     /**
      * This method should add new Faculty to university(must be unique by name)

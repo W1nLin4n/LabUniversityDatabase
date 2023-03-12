@@ -7,6 +7,12 @@ public class Department {
     List<Student> students;
     List<Teacher> teachers;
 
+    public Department(String name){
+        this.name = name;
+        this.students = new ArrayList<>();
+        this.teachers = new ArrayList<>();
+    }
+
     /**
      * This method should add new student to this department(must be unique by name)
      * @param student New student
@@ -53,4 +59,7 @@ public class Department {
 
     }
 
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }
 }

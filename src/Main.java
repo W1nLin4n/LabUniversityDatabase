@@ -1,7 +1,7 @@
 public class Main {
     private static University NaUKMA;
     public static void main(String[] args) {
-        NaUKMA = new University();
+//        NaUKMA = new University();
     }
 
     /**
