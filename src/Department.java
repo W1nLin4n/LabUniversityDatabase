@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Department {
     Faculty faculty;
     String name;
-    ArrayList<Student> students;
-    ArrayList<Teacher> teachers;
+    List<Student> students;
+    List<Teacher> teachers;
 
     /**
      * This method should add new student to this department(must be unique by name)

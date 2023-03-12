@@ -1,8 +1,9 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Faculty{
     String name;
-    ArrayList<Department> departments;
+    List<Department> departments;
 
     /**
      * This method should add new Department to this faculty(must be unique by name)
