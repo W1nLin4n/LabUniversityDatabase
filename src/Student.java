@@ -17,7 +17,15 @@ public class Student extends Person{
         return year;
     }
 
+    public void setYear(int year) {
+        this.year = year;
+    }
+
     public String getGroup() {
         return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 }

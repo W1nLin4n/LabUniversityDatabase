@@ -47,7 +47,10 @@ public class Department {
      * @param newStudent Parameters to change in student
      */
     public void editStudent(Student oldStudent, Student newStudent){
-
+        oldStudent.setName(newStudent.getName());
+        oldStudent.setAge(newStudent.getAge());
+        oldStudent.setYear(newStudent.getYear());
+        oldStudent.setGroup(newStudent.getGroup());
     }
 
     /**
@@ -56,7 +59,8 @@ public class Department {
      * @param newTeacher Parameters to change in teacher
      */
     public void editTeacher(Teacher oldTeacher, Teacher newTeacher){
-
+        oldTeacher.setName(newTeacher.getName());
+        oldTeacher.setAge(newTeacher.getAge());
     }
 
     public Faculty getFaculty() {
@@ -69,6 +73,10 @@ public class Department {
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<Student> getStudents() {

@@ -31,11 +31,15 @@ public class Faculty{
      * @param newDepartment Parameters to change in department
      */
     public void editDepartment(Department oldDepartment, Department newDepartment){
-
+        oldDepartment.setName(newDepartment.getName());
     }
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<Department> getDepartments() {

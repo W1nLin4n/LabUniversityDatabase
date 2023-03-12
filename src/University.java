@@ -30,7 +30,7 @@ public class University {
      * @param newFaculty Parameters to change in faculty
      */
     public void editFaculty(Faculty oldFaculty, Faculty newFaculty){
-
+        oldFaculty.setName(newFaculty.getName());
     }
 
     /**
