@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Faculty{
-    String name;
-    List<Department> departments;
+    private String name;
+    private List<Department> departments;
 
     public Faculty(String name){
         this.name = name;
@@ -34,4 +34,11 @@ public class Faculty{
 
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public List<Department> getDepartments() {
+        return departments;
+    }
 }

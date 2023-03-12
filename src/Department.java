@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Department {
-    Faculty faculty;
-    String name;
-    List<Student> students;
-    List<Teacher> teachers;
+    private Faculty faculty;
+    private String name;
+    private List<Student> students;
+    private List<Teacher> teachers;
 
     public Department(String name){
         this.name = name;
@@ -59,7 +59,23 @@ public class Department {
 
     }
 
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
     public void setFaculty(Faculty faculty) {
         this.faculty = faculty;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public List<Teacher> getTeachers() {
+        return teachers;
     }
 }
