@@ -6,11 +6,12 @@ public class University {
     private List<Faculty> faculties;
 
     public University(File input){
+        faculties = new ArrayList<>();
         FileParser.readUniversityData(input, this);
     }
 
     public University(){
-
+        faculties = new ArrayList<>();
     }
 
     /**
