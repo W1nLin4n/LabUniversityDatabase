@@ -47,6 +47,9 @@ public class University {
      */
     public List<Department> getDepartments(){
         List<Department> result = new ArrayList<>();
+        for(Faculty faculty : faculties){
+            result.addAll(faculty.getDepartments());
+        }
         return result;
     }
 
@@ -56,6 +59,10 @@ public class University {
      */
     public List<Student> getStudents(){
         List<Student> result = new ArrayList<>();
+        List<Department> departments = getDepartments();
+        for(Department department : departments){
+            result.addAll(department.getStudents());
+        }
         return result;
     }
 
@@ -65,6 +72,10 @@ public class University {
      */
     public List<Teacher> getTeachers(){
         List<Teacher> result = new ArrayList<>();
+        List<Department> departments = getDepartments();
+        for(Department department : departments){
+            result.addAll(department.getTeachers());
+        }
         return result;
     }
 
