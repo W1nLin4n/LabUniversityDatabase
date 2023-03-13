@@ -9,6 +9,10 @@ public class University {
         FileParser.readUniversityData(input, this);
     }
 
+    public University(){
+
+    }
+
     /**
      * This method should add new faculty to university(must be unique by name)
      * @param faculty New faculty
