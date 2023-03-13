@@ -18,6 +18,8 @@ public class Department {
      * @param student New student
      */
     public void addStudent(Student student){
+        students.add(student);
+        student.setDepartment(this);
     }
 
     /**
@@ -25,6 +27,8 @@ public class Department {
      * @param teacher New teacher
      */
     public void addTeacher(Teacher teacher){
+        teachers.add(teacher);
+        teacher.setDepartment(this);
     }
 
     /**
@@ -32,6 +36,7 @@ public class Department {
      * @param student Student to delete
      */
     public void deleteStudent(Student student){
+        students.remove(student);
     }
 
     /**
@@ -39,6 +44,7 @@ public class Department {
      * @param teacher New teacher
      */
     public void deleteTeacher(Teacher teacher){
+        teachers.remove(teacher);
     }
 
     /**

@@ -16,7 +16,7 @@ public class FileParser {
             lineOffset = 0;
             String facultyName = parseNextParam(line, lineOffset);
 
-            university.addFaculty(new Faculty(facultyName));
+            university.addFaculty(facultyName);
         }
 
 
@@ -32,7 +32,7 @@ public class FileParser {
 
             String facultyName = parseNextParam(line, lineOffset);
 
-            Select.facultyByName(university.getFaculties(), facultyName).addDepartment(new Department(departmentName));
+            university.addDepartment(departmentName, facultyName);
         }
 
         // Students
@@ -56,7 +56,7 @@ public class FileParser {
 
             String studentGroup = parseNextParam(line, lineOffset);
 
-            Select.departmentByName(university.getDepartments(), departmentName).addStudent(new Student(studentName, studentAge, studentYear, studentGroup));
+            university.addStudent(studentName, studentAge, departmentName, studentYear, studentGroup);
         }
 
         // Teachers
@@ -66,15 +66,15 @@ public class FileParser {
 
         while(!line.isEmpty()){
             lineOffset = 0;
-            String studentName = parseNextParam(line, lineOffset);
+            String teacherName = parseNextParam(line, lineOffset);
             lineOffset = skipParam(line, lineOffset);
 
-            int studentAge = Integer.parseInt(parseNextParam(line, lineOffset));
+            int teacherAge = Integer.parseInt(parseNextParam(line, lineOffset));
             lineOffset = skipParam(line, lineOffset);
 
             String departmentName = parseNextParam(line, lineOffset);
 
-            Select.departmentByName(university.getDepartments(), departmentName).addTeacher(new Teacher(studentName, studentAge));
+            university.addTeacher(teacherName, teacherAge, departmentName);
         }
         Reader.resetToConsole();
     }

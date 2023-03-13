@@ -15,6 +15,9 @@ public class Faculty{
      * @param department New department
      */
     public void addDepartment(Department department){
+
+        departments.add(department);
+        department.setFaculty(this);
     }
 
     /**
@@ -22,7 +25,7 @@ public class Faculty{
      * @param department Department to delete
      */
     public void deleteDepartment(Department department){
-
+        departments.remove(department);
     }
 
     /**
