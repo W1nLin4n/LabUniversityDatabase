@@ -17,6 +17,8 @@ public class FileParser {
             String facultyName = parseNextParam(line, lineOffset);
 
             university.addFaculty(facultyName);
+
+            line = Reader.readLine();
         }
 
 
@@ -33,6 +35,8 @@ public class FileParser {
             String facultyName = parseNextParam(line, lineOffset);
 
             university.addDepartment(departmentName, facultyName);
+
+            line = Reader.readLine();
         }
 
         // Students
@@ -57,6 +61,8 @@ public class FileParser {
             String studentGroup = parseNextParam(line, lineOffset);
 
             university.addStudent(studentName, studentAge, departmentName, studentYear, studentGroup);
+
+            line = Reader.readLine();
         }
 
         // Teachers
@@ -75,6 +81,8 @@ public class FileParser {
             String departmentName = parseNextParam(line, lineOffset);
 
             university.addTeacher(teacherName, teacherAge, departmentName);
+
+            line = Reader.readLine();
         }
         Reader.resetToConsole();
     }

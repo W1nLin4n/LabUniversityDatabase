@@ -1,7 +1,6 @@
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
 
@@ -12,7 +11,7 @@ public class Main {
         int database = Reader.readInt(1,2);
         switch (database) {
             case 1:
-            NAUKMA = new University(new File("/Users/yaroslavfrankiv/Documents/GitHub/LabUniversityDatabase/src/database.txt"));
+            NAUKMA = new University(new File("database.txt"));
             System.out.println("Default base is used.");
             case 2:
                 System.out.println("Enter the name of your database");
