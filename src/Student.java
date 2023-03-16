@@ -32,4 +32,9 @@ public class Student extends Person{
     public Department getDepartment() {
         return department;
     }
+
+    @Override
+    public String toString() {
+        return "Student " + getName() + ", age: " + getAge() + ", department: " + getDepartment().getName() + ", year of study: " + getYear() + ", group: " + getGroup();
+    }
 }

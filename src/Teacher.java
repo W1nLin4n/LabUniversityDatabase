@@ -12,4 +12,9 @@ public class Teacher extends Person{
     public Department getDepartment() {
         return department;
     }
+
+    @Override
+    public String toString() {
+        return "Teacher " + getName() + ", age: " + getAge() + ", department: " + getDepartment().getName();
+    }
 }
