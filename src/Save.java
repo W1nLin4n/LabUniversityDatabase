@@ -37,5 +37,6 @@ public class Save {
             pw.println(teacher.getName() + "," + teacher.getAge() + "," + teacher.getDepartment().getName());
         }
         pw.println();
+        pw.close();
     }
 }

@@ -11,13 +11,15 @@ public class Main {
         int database = Reader.readInt(1,2);
         switch (database) {
             case 1:
-            NAUKMA = new University(new File("database.txt"));
-            System.out.println("Default base is used.");
+                NAUKMA = new University(new File("database.txt"));
+                System.out.println("Default base is used.");
+                break;
             case 2:
                 System.out.println("Enter the name of your database");
-                String customDatabas = Reader.readLine();
-            NAUKMA = new University(new File(customDatabas));
+                String customDatabase = Reader.readLine();
+            NAUKMA = new University(new File(customDatabase));
                 System.out.println("Custom base is used.");
+                break;
             case 3:
                 break;
         }
