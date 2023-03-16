@@ -1,0 +1,93 @@
+Faculty
+Faculty of Law
+Faculty of Informatics
+Faculty of Biology
+Faculty of Economics
+
+Departament
+Department of Civil Law,Faculty of Law
+Department of Criminal Law,Faculty of Law
+Department of Information Technology,Faculty of Informatics
+Department of multimedia systems,Faculty of Informatics
+Department of medical biology,Faculty of Biology
+Department of genetics,Faculty of Biology
+Department of Economics and Entrepreneurship,Faculty of Economics
+Department of industry,Faculty of Economics
+
+Student
+John Smith,16,Department of Civil Law,1,group 5
+Sarah Johnson,17,Department of Civil Law,2,group 8
+David Williams,18,Department of Civil Law,3,group 9
+Sandy Brown,19,Department of Civil Law,4,group 6
+Michael Davis,20,Department of Civil Law,1,group 7
+Jessica Miller,21,Department of Civil Law,2,group 4
+Mark Wilson,16,Department of Civil Law,3,group 1
+Anna Taylor,17,Department of Civil Law,4,group 2
+Thomas Moore,18,Department of Civil Law,1,group 3
+Elizabeth Anderson,19,Department of Civil Law,2,group 9
+Oleksiy Kovalenko,16,Department of Civil Law,1,group 5
+Yana Hrytsenko,17,Department of Civil Law,2,group 8
+Pavlo Ponomarenko,18,Department of Civil Law,3,group 4
+Mykyta Tkachenko,19,Department of Civil Law,4,group 9
+Dmytro Sydorchuk,20,Department of Civil Law,1,group 6
+Anastasiia Borysenko,21,Department of Civil Law,2,group 7
+Maksym Stetsenko,16,Department of Civil Law,3,group 1
+Olha Zaychenko,17,Department of Civil Law,4,group 2
+Artem Khomyn,18,Department of Civil Law,1,group 3
+Mariia Vovk,19,Department of Civil Law,2,group 4
+Roman Boiko,20,Department of Civil Law,3,group 5
+Ihor Holub,21,Department of Civil Law,4,group 6
+Andrii Lysytskyi,16,Department of Civil Law,1,group 7
+Olesia Shcherbak,17,Department of Civil Law,2,group 8
+Volodymyr Bilous,18,Department of Civil Law,3,group 9
+Yelyzaveta Chorna,19,Department of Civil Law,4,group 1
+Serhii Havryliuk,20,Department of Civil Law,1,group 2
+Nataliia Pryshchepa,21,Department of Civil Law,2,group 3
+Denys Symonenko,16,Department of Criminal Law,3,group 4
+Svitlana Kostyk,17,Department of Criminal Law,4,group 5
+Juliette Dupont,16,Department of Criminal Law,1,group 5
+Antoine Durand,17,Department of Criminal Law,2,group 8
+Manon Leclercq,18,Department of Criminal Law,3,group 4
+Lucas Rousseau,19,Department of Criminal Law,4,group 9
+Emma Martin,20,Department of Criminal Law,1,group 6
+Maxime Moreau,21,Department of Criminal Law,2,group 7
+Léa Guillot,16,Department of Criminal Law,3,group 1
+Thomas Leroy,17,Department of Information Technology,4,group 2
+Charlotte Pichon,18,Department of Information Technology,1,group 3
+Pauline Gautier,19,Department of Information Technology,2,group 4
+Karol Kowalski,16,Department of Information Technology,1,group 5
+Agata Nowak,17,Department of Information Technology,2,group 8
+Jakub Winiewski,18,Department of Information Technology,3,group 4
+Natalia Wojciechowska,19,Department of Information Technology,4,group 9
+Bartosz Zieliski,20,Department of multimedia systems,1,group 6
+Magdalena Szczepaska,21,Department of multimedia systems,2,group 7
+Kamil Jankowski,16,Department of multimedia systems,3,group 1
+Monika Majewska,17,Department of multimedia systems,4,group 2
+Pawel Dąbrowski,18,Department of multimedia systems,1,group 3
+Martyna Kaczmarek,19,Department of multimedia systems,2,group 4
+Dawid Michalak,20,Department of multimedia systems,3,group 5
+Patrycja Nowicka,21,Department of medical biology,4,group 6
+Marcin Gorski,16,Department of medical biology,1,group 7
+Aleksandra Kaminska,17,Department of medical biology,2,group 8
+Michal Wisniewski,18,Department of medical biology,3,group 9
+Hanna Schulze,16,Department of medical biology,1,group 5
+Maximilian Müller,17,Department of medical biology,2,group 8
+Leonie Köhler,18,Department of genetics,3,group 4
+Jonas Weber,19,Department of genetics,4,group 9
+Marie Fischer,20,Department of Economics and Entrepreneurship,1,group 6
+Timo Richter,21,Department of Economics and Entrepreneurship,2,group 7
+Lena Bergmann,16,Department of Economics and Entrepreneurship,3,group 1
+Fabian Hoffmann,19,Department of industry,4,group 2
+Lukas Neumann,20,Department of industry,1,group 3
+Johanna Meyer,21,Department of industry,2,group 8
+
+Teacher
+María García,35,Department of Civil Law
+José López,36,Department of Criminal Law
+Carlos Hernández,37,Department of Information Technology
+Juan Pérez,38,Department of multimedia systems
+Ana Martínez,39,Department of medical biology
+Roberto Ramírez,40,Department of genetics
+Laura Sánchez,41,Department of Economics and Entrepreneurship
+Miguel Flores,42,Department of industry
+
