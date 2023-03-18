@@ -17,7 +17,7 @@ public class Order {
     public static Comparator<Student> byYear = new Comparator<Student>() {
         @Override
         public int compare(Student o1, Student o2) {
-            return o1.getAge() - o2.getAge();
+            return o1.getYear() - o2.getYear();
         }
     };
 
