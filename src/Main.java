@@ -1,6 +1,7 @@
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NavigableMap;
 
 public class Main {
 
@@ -60,7 +61,7 @@ public class Main {
     }
 
     private static void handleFacultyActions() {
-        System.out.println("1) Add faculty.\n2) Edit faculty.\n3) Delete faculty.\n4) Students of faculty list.\n5) Teachers of faculty list.");
+        System.out.println("1) Add faculty.\n2) Edit faculty.\n3) Delete faculty.");
         int mode = Reader.readInt(1, 3);
 
         switch (mode) {
@@ -79,7 +80,7 @@ public class Main {
     }
 
     private static void handleDepartmentActions() {
-        System.out.println("1) Add department.\n2) Edit department.\n3) Delete department.\n4) Students of department list.\n5) Teachers of department list.");
+        System.out.println("1) Add department.\n2) Edit department.\n3) Delete department.");
         int mode = Reader.readInt(1, 3);
 
         switch (mode) {
@@ -120,7 +121,7 @@ public class Main {
     }
 
     private static void handleTeacherActions() {
-        System.out.println("1) Add teacher.\n2) Edit teacher\n3) Delete teacher.\n4) Get list of teachers by alphabetical order.\n5) Find teacher.");
+        System.out.println("1) Add teacher.\n2) Edit teacher\n3) Delete teacher.\n4) Get teachers.\n5) Find teacher.");
         int mode = Reader.readInt(1, 5);
         switch (mode) {
             case 1:
@@ -133,7 +134,7 @@ public class Main {
                 deleteTeacher();
                 break;
             case 4:
-                getTeachersByAlphabeticalOrder();
+                getTeachers();
                 break;
             case 5:
                 findTeacher();
@@ -161,20 +162,6 @@ public class Main {
         NAUKMA.deleteFaculty(facultyName);
     }
 
-    private static void displayStudentsOfFaculty() {
-        System.out.println("Enter the faculty:");
-        String facultyName = Reader.readLine();
-        List<Student> students = Select.facultyByName(NAUKMA.getFaculties(), facultyName);
-        System.out.println(students);
-    }
-
-    private static void displayTeachersOfFaculty() {
-        System.out.println("Enter the faculty:");
-        String facultyName = Reader.readLine();
-        List<Teacher> teachers = Select.facultyByName(NAUKMA.getFaculties(), facultyName);
-        System.out.println(teachers);
-    }
-
     private static void addDepartment() {
         System.out.println("To what faculty do you want to add department?");
         String facultyName = Reader.readLine();
@@ -195,20 +182,6 @@ public class Main {
         System.out.println("Choose the department to delete:");
         String departmentName = Reader.readLine();
         NAUKMA.deleteDepartment(departmentName);
-    }
-
-    private static void displayStudentsOfDepartment() {
-        System.out.println("Enter the name of department:");
-        String departmentName = Reader.readLine();
-        List<Student> students = Select.departmentByName(NAUKMA.getDepartments(), departmentName);
-        System.out.println(students);
-    }
-
-    private static void displayTeachersOfDepartment() {
-        System.out.println("Enter the name of department:");
-        String departmentName = Reader.readLine();
-        List<Teacher> teachers = Select.departmentByName(NAUKMA.getDepartments(), departmentName);
-        System.out.println(teachers);
     }
 
     private static void addStudent() {
@@ -246,51 +219,91 @@ public class Main {
     }
 
     private static void getStudents() {
-        System.out.println("Choose the way of getting list:\n1) By alphabetical order.\n2) By year of study.");
-        int way = Reader.readInt(1, 2);
-        List<Student> students;
-
-        switch (way) {
+        System.out.println("Choose where to get students from:\n1) From university.\n2) From faculty.\n3) From department.");
+        int from = Reader.readInt(1, 3);
+        List<Student> students = null;
+        switch (from) {
             case 1:
-                students = OrderBy.name(NAUKMA.getStudents());
+                students = NAUKMA.getStudents();
                 break;
             case 2:
-                students = OrderBy.year(NAUKMA.getStudents());
+                System.out.println("Enter faculty name:");
+                String facultyName = Reader.readLine();
+                if(Select.facultyByName(NAUKMA.getFaculties(), facultyName) == null){
+                    System.out.println("There is no such faculty");
+                    return;
+                }
+                students = Select.facultyByName(NAUKMA.getFaculties(), facultyName).getStudents();
                 break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + way);
+            case 3:
+                System.out.println("Enter department name:");
+                String departmentName = Reader.readLine();
+                if(Select.departmentByName(NAUKMA.getDepartments(), departmentName) == null){
+                    System.out.println("There is no such department");
+                    return;
+                }
+                students = Select.departmentByName(NAUKMA.getDepartments(), departmentName).getStudents();
+                break;
+        }
+        if(students.isEmpty()){
+            System.out.println("There are no students matching criteria");
+            return;
+        }
+        System.out.println("Choose order and selection type:\n1) Alphabetical order.\n2) Order by year.\n3) Alphabetical order with year selection.");
+        int type = Reader.readInt(1, 3);
+        switch (type) {
+            case 1:
+                OrderBy.name(students);
+                break;
+            case 2:
+                OrderBy.year(students);
+                break;
+            case 3:
+                System.out.println("Enter year:");
+                int year = Reader.readInt();
+                students = Select.studentsByYear(students, year);
+                if(students.isEmpty()){
+                    System.out.println("There are no students matching criteria");
+                    return;
+                }
+                OrderBy.name(students);
+                break;
         }
         System.out.println(students);
     }
 
     private static void findStudent() {
-        System.out.println("Choose the way of searching:\n1) By name.\n2) By year.\n3) By group.\n4)By faculty.\n5)By department.");
-        int way = Reader.readInt(1, 5);
-        List<Student> students;
-
+        System.out.println("Choose the way of searching:\n1) By name.\n2) By year.\n3) By group.");
+        int way = Reader.readInt(1, 3);
         switch (way) {
             case 1:
-                String studentName = Reader.readLine();
-                students = Select.studentByName(NAUKMA.getStudents(), studentName);
+                System.out.println("Enter name:");
+                String name = Reader.readLine();
+                if(Select.studentByName(NAUKMA.getStudents(), name) == null){
+                    System.out.println("There is no student with this name");
+                    return;
+                }
+                System.out.println(Select.studentByName(NAUKMA.getStudents(), name));
                 break;
             case 2:
-                int yearOfStudy = Reader.readInt(1, 6);
-                students = Select.studentsByYear(NAUKMA.getStudents(), yearOfStudy);
+                System.out.println("Enter year:");
+                int year = Reader.readInt();
+                if(Select.studentsByYear(NAUKMA.getStudents(), year).isEmpty()){
+                    System.out.println("There are no students with this year of study");
+                    return;
+                }
+                System.out.println(Select.studentsByYear(NAUKMA.getStudents(), year));
                 break;
             case 3:
-                String studentGroup = Reader.readLine();
-                students = Select.studentsByGroup(NAUKMA.getStudents(), studentGroup);
+                System.out.println("Enter group:");
+                String group = Reader.readLine();
+                if(Select.studentsByGroup(NAUKMA.getStudents(), group).isEmpty()){
+                    System.out.println("There are no students with this group");
+                    return;
+                }
+                System.out.println(Select.studentsByGroup(NAUKMA.getStudents(), group));
                 break;
-            case 4:
-                displayStudentsOfFaculty();
-                break;
-            case 5:
-                displayStudentsOfDepartment();
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + way);
         }
-        System.out.println(students);
     }
 
     private static void addTeacher() {
@@ -319,36 +332,49 @@ public class Main {
         NAUKMA.deleteTeacher(teacherName);
     }
 
-    private static void getTeachersByAlphabeticalOrder() {
-        List<Teacher> teachers = OrderBy.name(NAUKMA.getTeachers());
+    private static void getTeachers() {
+        System.out.println("Choose where to get teachers from:\n1) From university.\n2) From faculty.\n3) From department.");
+        int from = Reader.readInt(1, 3);
+        List<Teacher> teachers = null;
+        switch (from) {
+            case 1:
+                teachers = NAUKMA.getTeachers();
+                break;
+            case 2:
+                System.out.println("Enter faculty name:");
+                String facultyName = Reader.readLine();
+                if(Select.facultyByName(NAUKMA.getFaculties(), facultyName) == null){
+                    System.out.println("There is no such faculty");
+                    return;
+                }
+                teachers = Select.facultyByName(NAUKMA.getFaculties(), facultyName).getTeachers();
+                break;
+            case 3:
+                System.out.println("Enter department name:");
+                String departmentName = Reader.readLine();
+                if(Select.departmentByName(NAUKMA.getDepartments(), departmentName) == null){
+                    System.out.println("There is no such department");
+                    return;
+                }
+                teachers = Select.departmentByName(NAUKMA.getDepartments(), departmentName).getTeachers();
+                break;
+        }
+        if(teachers.isEmpty()){
+            System.out.println("There are no teachers matching criteria");
+            return;
+        }
+        OrderBy.name(teachers);
         System.out.println(teachers);
     }
 
     private static void findTeacher() {
-        System.out.println("Choose the way of searching:\n1) By name.\n2)By faculty.\n3)By department.");
-        int way = Reader.readInt(1, 3);
-        switch (way) {
-            case 1:
-                System.out.println("Enter the name of teacher:");
-                String teacherName = Reader.readLine();
-                List<Teacher> teachers = Select.teacherByName(NAUKMA.getTeachers(), teacherName);
-                break;
-            case 2:
-                displayTeachersOfFaculty();
-                break;
-            case 5:
-                displayTeachersOfDepartment();
-                break;
-
-            default:
-                throw new IllegalStateException("Unexpected value: " + way);
+        System.out.println("Enter name:");
+        String name = Reader.readLine();
+        if(Select.teacherByName(NAUKMA.getTeachers(), name) == null){
+            System.out.println("There is no teacher with this name");
+            return;
         }
-        System.out.println(teachers);
-
-
-
-
-
+        System.out.println(Select.teacherByName(NAUKMA.getTeachers(), name));
     }
 }
 

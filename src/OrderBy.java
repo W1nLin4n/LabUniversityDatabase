@@ -2,7 +2,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class OrderBy {
-    public static void name(List<Person> list){
+    public static void name(List<? extends Person> list){
         Collections.sort(list, Order.byName);
     }
 
