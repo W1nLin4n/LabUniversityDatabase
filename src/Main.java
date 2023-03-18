@@ -62,8 +62,8 @@ public class Main {
     }
 
     private static void handleFacultyActions() {
-        System.out.println("1) Add faculty.\n2) Edit faculty.\n3) Delete faculty.");
-        int mode = Reader.readInt(1, 3);
+        System.out.println("1) Add faculty.\n2) Edit faculty.\n3) Delete faculty.\n4) Get faculties.");
+        int mode = Reader.readInt(1, 4);
 
         switch (mode) {
             case 1:
@@ -75,14 +75,15 @@ public class Main {
             case 3:
                 deleteFaculty();
                 break;
-
-
+            case 4:
+                getFaculties();
+                break;
         }
     }
 
     private static void handleDepartmentActions() {
-        System.out.println("1) Add department.\n2) Edit department.\n3) Delete department.");
-        int mode = Reader.readInt(1, 3);
+        System.out.println("1) Add department.\n2) Edit department.\n3) Delete department.\n4) Get departments.");
+        int mode = Reader.readInt(1, 4);
 
         switch (mode) {
             case 1:
@@ -94,7 +95,9 @@ public class Main {
             case 3:
                 deleteDepartment();
                 break;
-
+            case 4:
+                getDepartments();
+                break;
         }
     }
 
@@ -163,6 +166,14 @@ public class Main {
         NAUKMA.deleteFaculty(facultyName);
     }
 
+    public static void getFaculties(){
+        if(NAUKMA.getFaculties().isEmpty()){
+            System.out.println("There are no faculties yet");
+        }else{
+            NAUKMA.getFaculties().forEach(System.out::println);
+        }
+    }
+
     private static void addDepartment() {
         System.out.println("To what faculty do you want to add department?");
         String facultyName = Reader.readLine();
@@ -183,6 +194,14 @@ public class Main {
         System.out.println("Choose the department to delete:");
         String departmentName = Reader.readLine();
         NAUKMA.deleteDepartment(departmentName);
+    }
+
+    public static void getDepartments(){
+        if(NAUKMA.getDepartments().isEmpty()){
+            System.out.println("There are no departments yet");
+        }else{
+            NAUKMA.getDepartments().forEach(System.out::println);
+        }
     }
 
     private static void addStudent() {

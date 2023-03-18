@@ -92,4 +92,9 @@ public class Department {
     public List<Teacher> getTeachers() {
         return teachers;
     }
+
+    @Override
+    public String toString() {
+        return getName() + " from " + getFaculty().getName();
+    }
 }

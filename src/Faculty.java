@@ -64,4 +64,9 @@ public class Faculty{
         }
         return result;
     }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
 }
