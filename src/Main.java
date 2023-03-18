@@ -61,7 +61,7 @@ public class Main {
 
     private static void handleFacultyActions() {
         System.out.println("1) Add faculty.\n2) Edit faculty.\n3) Delete faculty.\n4) Students of faculty list.\n5) Teachers of faculty list.");
-        int mode = Reader.readInt(1, 5);
+        int mode = Reader.readInt(1, 3);
 
         switch (mode) {
             case 1:
@@ -73,18 +73,14 @@ public class Main {
             case 3:
                 deleteFaculty();
                 break;
-            case 4:
-                displayStudentsOfFaculty();
-                break;
-            case 5:
-                displayTeachersOfFaculty();
-                break;
+
+
         }
     }
 
     private static void handleDepartmentActions() {
         System.out.println("1) Add department.\n2) Edit department.\n3) Delete department.\n4) Students of department list.\n5) Teachers of department list.");
-        int mode = Reader.readInt(1, 5);
+        int mode = Reader.readInt(1, 3);
 
         switch (mode) {
             case 1:
@@ -96,12 +92,7 @@ public class Main {
             case 3:
                 deleteDepartment();
                 break;
-            case 4:
-                displayStudentsOfDepartment();
-                break;
-            case 5:
-                displayTeachersOfDepartment();
-                break;
+
         }
     }
 
@@ -273,8 +264,8 @@ public class Main {
     }
 
     private static void findStudent() {
-        System.out.println("Choose the way of searching:\n1) By name.\n2) By year.\n3) By group.");
-        int way = Reader.readInt(1, 3);
+        System.out.println("Choose the way of searching:\n1) By name.\n2) By year.\n3) By group.\n4)By faculty.\n5)By department.");
+        int way = Reader.readInt(1, 5);
         List<Student> students;
 
         switch (way) {
@@ -289,6 +280,12 @@ public class Main {
             case 3:
                 String studentGroup = Reader.readLine();
                 students = Select.studentsByGroup(NAUKMA.getStudents(), studentGroup);
+                break;
+            case 4:
+                displayStudentsOfFaculty();
+                break;
+            case 5:
+                displayStudentsOfDepartment();
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + way);
@@ -328,10 +325,30 @@ public class Main {
     }
 
     private static void findTeacher() {
-        System.out.println("Enter the name of teacher:");
-        String teacherName = Reader.readLine();
-        List<Teacher> teachers = Select.teacherByName(NAUKMA.getTeachers(), teacherName);
+        System.out.println("Choose the way of searching:\n1) By name.\n2)By faculty.\n3)By department.");
+        int way = Reader.readInt(1, 3);
+        switch (way) {
+            case 1:
+                System.out.println("Enter the name of teacher:");
+                String teacherName = Reader.readLine();
+                List<Teacher> teachers = Select.teacherByName(NAUKMA.getTeachers(), teacherName);
+                break;
+            case 2:
+                displayTeachersOfFaculty();
+                break;
+            case 5:
+                displayTeachersOfDepartment();
+                break;
+
+            default:
+                throw new IllegalStateException("Unexpected value: " + way);
+        }
         System.out.println(teachers);
+
+
+
+
+
     }
 }
 
