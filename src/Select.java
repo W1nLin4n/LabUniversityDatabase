@@ -57,7 +57,7 @@ public class Select {
     public static List<Student> studentsByGroup(List<Student> list, String group){
         List<Student> result = new ArrayList<>();
         for (Student student : list) {
-            if (student.toString().equals(group)) {
+            if (student.getGroup().equals(group)) {
                 result.add(student);
             }
         }
