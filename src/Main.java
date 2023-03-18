@@ -51,6 +51,7 @@ public class Main {
                 System.out.println("Custom base is used.");
                 break;
             case 3:
+                NAUKMA = new University();
                 break;
         }
     }
