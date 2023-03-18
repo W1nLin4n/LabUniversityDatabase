@@ -269,7 +269,7 @@ public class Main {
                 OrderBy.name(students);
                 break;
         }
-        System.out.println(students);
+        students.forEach(System.out::println);
     }
 
     private static void findStudent() {
@@ -292,7 +292,7 @@ public class Main {
                     System.out.println("There are no students with this year of study");
                     return;
                 }
-                System.out.println(Select.studentsByYear(NAUKMA.getStudents(), year));
+                Select.studentsByYear(NAUKMA.getStudents(), year).forEach(System.out::println);
                 break;
             case 3:
                 System.out.println("Enter group:");
@@ -301,7 +301,7 @@ public class Main {
                     System.out.println("There are no students with this group");
                     return;
                 }
-                System.out.println(Select.studentsByGroup(NAUKMA.getStudents(), group));
+                Select.studentsByGroup(NAUKMA.getStudents(), group).forEach(System.out::println);
                 break;
         }
     }
@@ -364,7 +364,7 @@ public class Main {
             return;
         }
         OrderBy.name(teachers);
-        System.out.println(teachers);
+        teachers.forEach(System.out::println);
     }
 
     private static void findTeacher() {
