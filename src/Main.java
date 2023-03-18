@@ -260,7 +260,7 @@ public class Main {
                 break;
             case 3:
                 System.out.println("Enter year:");
-                int year = Reader.readInt();
+                int year = Reader.readInt(1, 6);
                 students = Select.studentsByYear(students, year);
                 if(students.isEmpty()){
                     System.out.println("There are no students matching criteria");
@@ -287,7 +287,7 @@ public class Main {
                 break;
             case 2:
                 System.out.println("Enter year:");
-                int year = Reader.readInt();
+                int year = Reader.readInt(1, 6);
                 if(Select.studentsByYear(NAUKMA.getStudents(), year).isEmpty()){
                     System.out.println("There are no students with this year of study");
                     return;
