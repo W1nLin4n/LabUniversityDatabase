@@ -41,7 +41,7 @@ public class Select {
     public static List<Student> studentsByYear(List<Student> list, int year){
         List<Student> result = new ArrayList<>();
         for (Student student : list) {
-            if (student.getAge() == year) {
+            if (student.getYear() == year) {
                 result.add(student);
             }
         }
